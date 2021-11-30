@@ -15,9 +15,9 @@ public static void main(String[] args) {
 	System.out.println("Enter your choice");
 	System.out.println("Choice-1 : Add the items. ");
 	System.out.println("Choice-2 : Display the items ");
-	System.out.println("Choice-3 : Replace the items");
-	System.out.println("Choice-4 : Remove the items");
-	System.out.println("Choice-5 : Display the item");
+	System.out.println("Choice-3 : Display the item");
+	System.out.println("Choice-4 : Replace the items");
+	System.out.println("Choice-5 : Remove the item");
 	System.out.println("Choice-6 : Quit");
 	Scanner sc=new Scanner(System.in);
 	
@@ -41,15 +41,28 @@ public static void main(String[] args) {
 		
 		break;
 		case 3:	System.out.println("Enter the index ");
-		    int d=sc.nextInt();
-			System.out.println(	list.get(d));
+		 try{  
+		int d=sc.nextInt();
+		System.out.println(	list.get(d));
+		 }
+		 catch(IndexOutOfBoundsException i)
+		 {
+			 System.out.println("Enter the valid index.The index between 0 to "+(list.size()-1));
+		 }
+			
 			break;
-		case 4:System.out.println("Enter the Replacement inex");
-			int g=sc.nextInt();
-			System.out.println("Enter the Repacement String");
+		case 4:System.out.println("Enter the Replacement index");
+			try{
+				int g=sc.nextInt();
+			System.out.println("Enter the Replacement String");
 			String s=sc.next();
 			list.remove(g);
 			list.add(g, s);
+			}
+			catch(IndexOutOfBoundsException i) {
+				 System.out.println("Enter the valid index.The index between 0 to "+(list.size()-1));
+				
+			}
 			break;
 			
 			
@@ -58,11 +71,19 @@ public static void main(String[] args) {
 		list.remove(e);
 		break;
 		
-		default:	
+		default:break;	
 			
 		}
-		System.out.println("Enter the choice: ");
+		
+		System.out.println("Enter your choice");
+		System.out.println("Choice-1 : Add the items. ");
+		System.out.println("Choice-2 : Display the items ");
+		System.out.println("Choice-3 : Display item");
+		System.out.println("Choice-4 : Replace item");
+		System.out.println("Choice-5 : Remove item");
+		System.out.println("Choice-6 : Quit");
 		a=sc.nextInt();
+		
 		
 	}
 	System.out.println("Thanks Visit again");
